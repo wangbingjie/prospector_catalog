@@ -70,6 +70,8 @@ if __name__ == '__main__':
     cat = Table.read('../phot_catalog/' + catalog)
     tot = np.arange(len(cat))
 
+    '''
+    # the below is for fitting the missed objects, one per core.
     tot = []
     for _id in cat['id'].data:
         if _id not in nfiles_phot:
@@ -78,6 +80,7 @@ if __name__ == '__main__':
     print(tot)
     tot = tot - 1 # id to idx # this only works if using the full phot catalog
     ncores = len(tot)
+    '''
 
     acc = 'bc'
     ncores = 840 # number of cores to request
