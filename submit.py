@@ -155,6 +155,13 @@ if __name__ == '__main__':
 
     ########################## step 3. parse individual results into summary files ##########################
 
+    prior = 'phisfh' # prospector-beta mass + sfh priors
+
+    # saves posterior moments
+    _cmd = 'save_perc.py --catalog UNCOVER_{}_CATALOG.fits --indir post_parrot_{}_{} --prior {}'.format(ver, ver, spsver, prior)
+    print(_cmd)
+    run_params(_cmd, jobname='perc', oe_dir='log', acc='sc', i=0, wtime=10)
+
     # saves transformed chains (i.e., those published in the data release)
     _cmd = 'save_chain.py --catalog UNCOVER_{}_CATALOG.fits --indir post_parrot_{}_{}'.format(ver, ver, spsver)
     print(_cmd)
